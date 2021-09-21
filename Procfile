@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath motivate motivate.wsgi--log-file -
+web: gunicorn --pythonpath motivate motivate.wsgi --log-file -
