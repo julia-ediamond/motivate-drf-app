@@ -93,10 +93,10 @@ class PledgeDetail(APIView):
         permissions.IsAuthenticatedOrReadOnly,
         IsSupporterOrReadOnly
     ]
-    def get_pledge(self, pk):
+    def get_object(self, pk):
         try:
             pledge = Pledge.objects.get(pk=pk)
-            self.check_object_permissions(self.request,pledge)
+            self.check_object_permissions(self.request, pledge)
             return pledge
         except Pledge.DoesNotExist:
             raise Http404
@@ -113,10 +113,10 @@ class PledgeDetail(APIView):
             instance=pledge,
             data=data,
             partial=True
-        )
+        ) #serializer = PledgeDetailSerializer(pledge, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            Response(
+            return Response(
                 serializer.data,
                 )
         return Response(
