@@ -8,3 +8,11 @@ class CustomUserSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return CustomUser.objects.create(**validated_data)
+
+class UserDetailSerializer(CustomUserSerializer):
+    def update(self, instance, validated_data):
+        instance.id = validated_data.get('id', instance.id)
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.save()
+        return instance
