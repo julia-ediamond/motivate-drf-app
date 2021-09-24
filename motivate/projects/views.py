@@ -57,9 +57,10 @@ class ProjectDetail(APIView):
         
         if serializer.is_valid():
             serializer.save()
-            Response(
+            return Response(
                 serializer.data,
                 )
+        print('here', serializer.is_valid(), serializer.errors, data)
         return Response(
         serializer.errors,
         status=status.HTTP_400_BAD_REQUEST
@@ -70,6 +71,7 @@ class ProjectDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class PledgeList(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         pledges = Pledge.objects.all()
         serializer = PledgeSerializer(pledges, many=True)
