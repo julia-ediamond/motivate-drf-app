@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Pledge
+from .models import Project, Pledge, TimeDonation
 
 class PledgeSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -54,3 +54,17 @@ class PledgeDetailSerializer(PledgeSerializer):
         instance.project_id = validated_data.get('project_id', instance.project_id)
         instance.save()
         return instance
+
+class TimeDonationListSerializer(serializers.Serializer):
+    id = serializers.ReadOnlyField()
+    
+    time = serializers.IntegerField()
+    comment = serializers.CharField(max_length=None)
+    project_id = serializers.IntegerField()
+    supporter = serializers.ReadOnlyField(source='supporter.id')
+    date_started = serializers.DateTimeField()
+    date_started = serializers.DateTimeField()
+    
+
+    def create(self, validated_data):
+        return TimeDonation.objects.create(**validated_data)
