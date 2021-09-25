@@ -3,8 +3,8 @@ from rest_framework import status, permissions
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Project, Pledge
-from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSerializer, PledgeDetailSerializer
+from .models import Project, Pledge, TimeDonation
+from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSerializer, PledgeDetailSerializer, TimeDonationListSerializer
 from .permissions import IsOwnerOrReadOnly, IsSupporterOrReadOnly
 # Create your views here.
 class ProjectList(APIView):
@@ -130,3 +130,28 @@ class PledgeDetail(APIView):
         pledge = self.get_object(pk)
         pledge.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class TimeDonationList(APIView):
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsSupporterOrReadOnly
+    ]
+    def get(self, request):
+        timedonations = TimeDonation.objects.all()
+        serializer = TimeDonationListSerializer(timedonations, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = TimeDonationListSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(supporter=request.user)
+            return Response(
+                serializer.data,
+                status=status.HTTP_201_CREATED
+                )
+        return Response(
+            serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+            )
+

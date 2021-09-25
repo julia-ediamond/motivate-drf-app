@@ -36,4 +36,16 @@ class Pledge(models.Model):
         related_name='supporter_pledges'
     )
     
-    #supporter = models.CharField(max_length=200)
+class TimeDonation(models.Model):
+    time = models.IntegerField()
+    comment = models.CharField(max_length=200)
+    project = models.ForeignKey(
+        'Project',
+        on_delete=models.CASCADE
+    )
+    supporter = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+    date_started = models.DateTimeField()
+    date_finished = models.DateTimeField()
