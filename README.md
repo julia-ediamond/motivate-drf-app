@@ -61,3 +61,7 @@ Projects with pledges
 
 Get all pledges
 [Get all pledges](https://quiet-hamlet-41512.herokuapp.com/pledges/)
+
+Sing up/ login
+[Auth] (https://quiet-hamlet-41512.herokuapp.com/users/)
+![Screenshot from Insomnia](/Screenshots/unauth_request.png)
