@@ -63,5 +63,14 @@ Get all pledges
 [Get all pledges](https://quiet-hamlet-41512.herokuapp.com/pledges/)
 
 Sing up/ login
+Request to create a new user: 
+```
+{
+  "username": "This field is required.",
+  "email": "This field is required.",
+  "password": "This field is required."
+}
+```
 [Auth] (https://quiet-hamlet-41512.herokuapp.com/users/)
-![Screenshot from Insomnia](/Screenshots/unauth_request.png)
+Unauth request: ![Screenshot from Insomnia](/Screenshots/unauth_request.png)
+Token: ![Screenshot from Insomnia](/Screenshots/token.png)
