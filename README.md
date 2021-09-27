@@ -23,6 +23,7 @@ MVP
 ## Endpoints
 
 [Get all projects](https://quiet-hamlet-41512.herokuapp.com/projects/)
+![Screenshot from Insomnia](get_projects.png)
 
 Request body to create a new project:
 ```
