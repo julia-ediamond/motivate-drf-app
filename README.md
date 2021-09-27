@@ -74,4 +74,5 @@ Request to create a new user:
 ```
 
 Unauth request: ![Screenshot from Insomnia](/Screenshots/unauth_request.png)
-Token: ![Screenshot from Insomnia](/Screenshots/token.png)
+Token: 
+![Screenshot from Insomnia](/Screenshots/token.png)
