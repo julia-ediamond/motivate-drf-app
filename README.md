@@ -56,4 +56,8 @@ Request to create a new pledge:
 ```
 ![Screenshot from Insomnia](/Screenshots/create_a_pledge.png)
 
+Projects with pledges
+![Screenshot from Insomnia](/Screenshots/projects_with_pledges.png)
 
+Get all pledges
+[Get all pledges](https://quiet-hamlet-41512.herokuapp.com/pledges/)
