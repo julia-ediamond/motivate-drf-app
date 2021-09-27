@@ -41,3 +41,6 @@ Request body to create a new project:
         
     }
 ```
+
+![Screenshot from Insomnia](/Screenshots/create_a_projects.png
+.png)
