@@ -43,3 +43,17 @@ Request body to create a new project:
 ```
 
 ![Screenshot from Insomnia](/Screenshots/create_a_projects.png)
+
+Post a pledge
+Request to create a new pledge: 
+```
+{
+   "amount": 14,
+  "comment": "Love this project!",
+  "anonymous": false,
+   "project_id": 2
+}
+```
+![Screenshot from Insomnia](/Screenshots/create_a_pledge.png)
+
+
