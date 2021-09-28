@@ -73,5 +73,6 @@ Request to create a new user:
   "password": "This field is required."
 }
 ```
-[Get timedonation] (https://quiet-hamlet-41512.herokuapp.com/timedonation/)
+Get timedonation 
+https://quiet-hamlet-41512.herokuapp.com/timedonation/
 At the moment throws 500 error - to be fixed. 
