@@ -44,9 +44,6 @@ Request body to create a new project:
 
 ![Screenshot from Insomnia](/Screenshots/create_a_projects.png)
 
-Get all pledges
-[Get all pledges](https://quiet-hamlet-41512.herokuapp.com/pledges/)
-
 Post a pledge
 Request to create a new pledge: 
 ```
@@ -62,9 +59,13 @@ Request to create a new pledge:
 Projects with pledges
 ![Screenshot from Insomnia](/Screenshots/projects_with_pledges.png)
 
-Sing up/ login
-[Auth] (https://quiet-hamlet-41512.herokuapp.com/users/)
-Request to create a new user: 
+Get all pledges
+[Get all pledges](https://quiet-hamlet-41512.herokuapp.com/pledges/)
+
+Sing up/ login (https://quiet-hamlet-41512.herokuapp.com/users/)
+![Screenshot from Insomnia](/Screenshots/unauth_request.png)
+
+Request to create a new user:
 ```
 {
   "username": "This field is required.",
@@ -72,7 +73,5 @@ Request to create a new user:
   "password": "This field is required."
 }
 ```
-
-Unauth request: ![Screenshot from Insomnia](/Screenshots/unauth_request.png)
-Token: 
-![Screenshot from Insomnia](/Screenshots/token.png)
+[Get timedonation] (https://quiet-hamlet-41512.herokuapp.com/timedonation/)
+At the moment throws 500 error - to be fixed. 
