@@ -79,4 +79,4 @@ At the moment throws 500 error - to be fixed.
 
 
 ## API specification
-(api.png)
+![Screenshot](api.png)
