@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import CustomUser
-from .serializers import CustomUserSerializer, CustomUserSerializer, UserDetailSerializer
+from .serializers import CustomUserSerializer, CustomUserSerializer, UserDetailSerializer, CreateUserSerializer
 from django.http import Http404
 # Create your views here.
 class CustomUserList(APIView):
@@ -12,13 +12,14 @@ class CustomUserList(APIView):
         users = CustomUser.objects.all()
         serializer = CustomUserSerializer(users, many=True)
         return Response(serializer.data)
-    
+
     def post(self, request):
-        serializer = CustomUserSerializer(data=request.data)
+        serializer = CreateUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class CustomUserDetail(APIView):
     def get_object(self, pk):
         try:
