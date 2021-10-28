@@ -6,7 +6,7 @@ from rest_framework import status
 from .models import CustomUser
 from .serializers import CustomUserSerializer, CustomUserSerializer, UserDetailSerializer, CreateUserSerializer
 from django.http import Http404
-# Create your views here.
+
 class CustomUserList(APIView):
     def get(self, request):
         users = CustomUser.objects.all()
