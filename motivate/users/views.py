@@ -39,7 +39,7 @@ class CustomUserDetail(APIView):
             instance=user,
             data=data,
             partial=True
-        ) #serializer = PledgeDetailSerializer(pledge, data=request.data)
+        ) 
         if serializer.is_valid():
             serializer.save()
             return Response(
